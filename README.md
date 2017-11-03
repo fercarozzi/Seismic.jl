@@ -12,8 +12,7 @@
 This module provides tools to read, write, and process 
 seismic data. 
 (The documentation can be found [here](http://seismicjulia.github.io/Seismic.jl)
-and [here]
-(http://seismic.physics.ualberta.ca).). At the moment, it is updated and tested against Julia 0.6
+and [here](http://seismic.physics.ualberta.ca).). At the moment, it is updated and tested against Julia 0.6
 
 ## Installation
 To use this package you must first install the [Julia](http://julialang.org/downloads/) programming language. Once you have Julia you can install the Seismic package by typing ```Pkg.add("Seismic")``` on the Julia command line and then run ```Pkg.checkout("Seismic")``` to stay updated to the last version in this repository. 
@@ -25,13 +24,13 @@ the functions. For example
 ```Julia
 using PyPlot, Seismic;
 download("http://seismic.physics.ualberta.ca/data/gom_cdp_nmo.su","gom_cdp_nmo.su");
-SegyToSeis("gom_cdp_nmo.su","gom_cdp_nmo", format="su", input_type="ieee",swap_bytes=true);
+SegyToSeis("gom_cdp_nmo.su","gom_cdp_nmo",format="su",input_type="ieee",swap_bytes=true)
 d, h, e = SeisRead("gom_cdp_nmo");
-SeisPlot(d[1:500, :]);
+SeisPlot(d,aspect=4500,dy=dt,dx=dx,title="GOM_NMO_CDPgather", xlabel="Offset", ylabel="Time", xunits="(ft)", yunits="(seconds)")
 ```
 will produce this figure:
 
-![plot1](http://seismic.physics.ualberta.ca/figures/616_79_PR.png)
+![plot1](http://seismic.physics.ualberta.ca/figures/GOM_CDP_NMO.png)
 
 ## For developers: contributing to the package
 If you want to fork the repository and contribute to Seismic.jl:
